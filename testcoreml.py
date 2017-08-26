@@ -28,7 +28,7 @@ if __name__ == '__main__':
     dataList = [{'solarPanels':1.0, 'greenhouses':1.0, 'size':1024},
                 {'solarPanels':4.0, 'greenhouses':5.0, 'size':10004}]
     logging.info('solarPanels greenhouses size   price')
-    logging.indo('------------------------------------')
+    logging.info('------------------------------------')
     for dataItem in dataList:
     	predictions = model.predict(dataItem)
         logging.info('%11.1f %11d %4d %5d' % (dataItem['solarPanels'], \
