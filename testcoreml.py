@@ -31,6 +31,6 @@ if __name__ == '__main__':
     logging.info('------------------------------------')
     for dataItem in dataList:
     	predictions = model.predict(dataItem)
-        logging.info('%11.1f %11d %4d %5d' % (dataItem['solarPanels'], \
+        logging.info('%11.1f %11d %4d  %5d' % (dataItem['solarPanels'], \
         	dataItem['greenhouses'], dataItem['size'], predictions['price']))
 
