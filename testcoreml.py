@@ -5,11 +5,12 @@ import logging
 import os
 
 if __name__ == '__main__':
-    loggingFormat = '%(asctime)s %(lineno)04d %(levelname)-8s %(message)s'
-    logging.basicConfig(level=logging.DEBUG, format=loggingFormat, datefmt='%H:%M',)
+    logFmt = '%(asctime)s %(lineno)04d %(levelname)-8s %(message)s'
+    logging.basicConfig(level=logging.DEBUG, format=logFmt, datefmt='%H:%M',)
     
     
-    modelFilePath = '%s/%s' % (os.getcwd(), 'MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel')
+    modelFilePath = os.getcwd()
+    modelFilePath += '/MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel')
     logging.debug(modelFilePath)
     model = coremltools.models.MLModel(modelFilePath)  # 加载mlmodel文件
 
@@ -26,7 +27,10 @@ if __name__ == '__main__':
     # 根据输入的三个字段，验证输出值
     dataList = [{'solarPanels':1.0, 'greenhouses':1.0, 'size':1024},
                 {'solarPanels':4.0, 'greenhouses':5.0, 'size':10004}]
+    logging.info('solarPanels greenhouses size   price')
+    logging.indo('------------------------------------')
     for dataItem in dataList:
     	predictions = model.predict(dataItem)
-        logging.info('predictions:         %d' % predictions['price'])
+        logging.info('%11.1f %11d %4d %5d' % (dataItem['solarPanels'], \
+        	dataItem['greenhouses'], dataItem['size'], predictions['price']))
 
