@@ -2,12 +2,15 @@
 
 import coremltools
 import logging
+import os
 
 if __name__ == '__main__':
     loggingFormat = '%(asctime)s %(lineno)04d %(levelname)-8s %(message)s'
     logging.basicConfig(level=logging.DEBUG, format=loggingFormat, datefmt='%H:%M',)
-	    
-    modelFilePath = 'MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel'
+    
+    
+    modelFilePath = '%s/%s' % (os.getcwd(), 'MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel')
+    logging.debug(modelFilePath)
     model = coremltools.models.MLModel(modelFilePath)
 
     print('author:              %s' % (model.author))
@@ -20,4 +23,5 @@ if __name__ == '__main__':
 
     data = {'solarPanels':1.0, 'greenhouses':1.0, 'size':1024}
     predictions = model.predict(data)
-    print('predictions:         %d' % data.price)
+    print('predictions:         %d' % predictions['price'])
+
