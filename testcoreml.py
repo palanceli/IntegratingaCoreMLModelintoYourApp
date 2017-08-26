@@ -10,7 +10,7 @@ if __name__ == '__main__':
     
     
     modelFilePath = os.getcwd()
-    modelFilePath += '/MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel')
+    modelFilePath += '/MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel'
     logging.debug(modelFilePath)
     model = coremltools.models.MLModel(modelFilePath)  # 加载mlmodel文件
 
