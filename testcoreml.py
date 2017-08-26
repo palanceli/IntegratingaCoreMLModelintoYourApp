@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     # 根据输入的三个字段，验证输出值
     dataList = [{'solarPanels':1.0, 'greenhouses':1.0, 'size':1024},
-                {'solarPanels':4.0, 'greenhouses':5.0, 'size':10004}]
+                {'solarPanels':4.0, 'greenhouses':5.0, 'size':10000}]
     logging.info('solarPanels greenhouses size   price')
     logging.info('------------------------------------')
     for dataItem in dataList:
