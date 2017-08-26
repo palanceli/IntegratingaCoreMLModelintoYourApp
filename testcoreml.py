@@ -11,17 +11,17 @@ if __name__ == '__main__':
     
     modelFilePath = '%s/%s' % (os.getcwd(), 'MarsHabitatPricePredictor/Resources/MarsHabitatPricer.mlmodel')
     logging.debug(modelFilePath)
-    model = coremltools.models.MLModel(modelFilePath)
+    model = coremltools.models.MLModel(modelFilePath)  # 
 
-    print('author:              %s' % (model.author))
-    print('license:             %s' % (model.license))
-    print('short description:   %s' % (model.short_description))
-    print('input description:   %s' % (model.input_description))
-    print('output description:  %s' % (model.output_description))
-
-    print(model.get_spec())
+    logging.info('author:              %s' % (model.author))
+    logging.info('license:             %s' % (model.license))
+    logging.info('short description:   %s' % (model.short_description))
+    logging.info('input description:   %s' % (model.input_description))
+    logging.info('output description:  %s' % (model.output_description))
+ 
+    logging.info(model.get_spec())
 
     data = {'solarPanels':1.0, 'greenhouses':1.0, 'size':1024}
     predictions = model.predict(data)
-    print('predictions:         %d' % predictions['price'])
+    logging.info('predictions:         %d' % predictions['price'])
 
